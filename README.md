@@ -1,5 +1,4 @@
 # Neovim Config with Lua
-
 ## Plugins List
 - [Paq](https://github.com/savq/paq-nvim) - Package Manager
 - [Lsp](https://github.com/neovim/nvim-lspconfig) 
@@ -13,6 +12,8 @@
 ~/.confg/nvim
 .
 ├── init.lua
+├── colors
+│   └── onedark.vim
 └── lua
     ├── keymapping.lua
     ├── onedark_higl.lua
@@ -32,7 +33,9 @@
 ```
 ## Appearance
 Colorscheme: [onedark](https://github.com/navarasu/onedark.nvim)
+
 Fonts: [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
+
 Icons: [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 
 ## Resources
