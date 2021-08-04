@@ -3,26 +3,46 @@ local function map(mode, lhs, rhs, opts)
   if opts then options = vim.tbl_extend('force', options, opts) end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+
 local opt = {}
 local map2 = vim.api.nvim_set_keymap
-vim.g.mapleader = " "
+
+vim.g.mapleader = " " -- set leader as Space
+
+--General
 map('', '<leader>c', '"+y')
 map('i', '<C-u>', '<C-g>u<C-u>')
 map('i', '<C-w>', '<C-g>u<C-w>')
 map('n', '<C-s>', '<cmd>source ~/.config/nvim/init.lua<CR>')
 map('n', '<C-h>', '<cmd>source %<CR>')
-map('n', '<C-l>', '<cmd>noh<CR>')
-map('n', '<leader>o', 'm`o<Esc>``')
+map('n', '<leader>u','<cmd>source ~/.config/nvim/lua/plugins_config/highlights.lua<CR>')
+map('n', '<leader>o', 'm`o<Esc>``') -- Add new line below the cursor wihout entering INSERT Mode
+
+map("n", "<C-a>", ":%y+<CR>", opt) -- Copy the whole file content
+
+--Package
+map('n', '<leader>l', '<cmd>PaqList<CR>')
+map('n', '<leader>p', '<cmd>PaqInstall<CR>')
+
+-- Comment
+map("n", "<leader>/", ":CommentToggle<CR>", opt)
+map("v", "<leader>/", ":CommentToggle<CR>", opt)
+
+-- BufferLine
+map("n", "<TAB>", ":BufferLineCycleNext<CR>", opt)
+map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<leader>e", "<cmd>BufferLinePick<CR>")
+map('n', '<leader>p', "<cmd>BufferLineCloseRight<CR>")
+map('n', '<leader>q', "<cmd>BufferLineCloseLeft<CR>")
+map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
+map2('n', '<leader>c', ':nohl<CR>', {noremap = true, silent = true})
+
+--NvimTree
 map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', '<leader>r','<cmd>NvimTreeRefresh<CR>')
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>',opt)
-map("n", "<leader>/", ":CommentToggle<CR>", opt)
-map("v", "<leader>/", ":CommentToggle<CR>", opt)
-map("n", "<TAB>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<leader>e", ":BufferLinePick<CR>", opt)
-map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
-map2('n', '<leader>c', ':nohl<CR>', {noremap = true, silent = true})
+
+--Auto-Complete & Lsp
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)

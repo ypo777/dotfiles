@@ -1,5 +1,4 @@
 vim.cmd 'packadd paq-nvim'
-local paq = require('paq-nvim').paq
 
 require 'paq'{
 	'savq/paq-nvim';
@@ -9,17 +8,22 @@ require 'paq'{
  	'kyazdani42/nvim-tree.lua';
 	'kyazdani42/nvim-web-devicons';
 	'navarasu/onedark.nvim';
-  'Yggdroot/indentLine';
   'terrortylor/nvim-comment';
   'onsails/lspkind-nvim';
-
+  'windwp/nvim-autopairs';
+  'nvim-treesitter/nvim-treesitter';
+  'karb94/neoscroll.nvim';
+  'lukas-reineke/indent-blankline.nvim';
+  'glepnir/galaxyline.nvim';
+  'norcalli/nvim-colorizer.lua';
+  'nvim-lua/plenary.nvim';
+  'lewis6991/gitsigns.nvim';
 }
 
-require('nvim_comment').setup()
-require('bufferline_settings')
 require('settings')
 require('keymapping')
-require('statusline')
 require('nvim-tree/main')
 require('nvim-compe/main')
+require('nvim-lspconfig/main')
+
 
