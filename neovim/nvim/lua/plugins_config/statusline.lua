@@ -1,13 +1,4 @@
-local function apple()
-  return [[]]
-end
-local function file()
-  return [[ﴜ]]
-end
-
-local name = "onedark_higl"
-vim.g.nvchad_theme = name
-local theme = vim.g.nvchad_theme
+local theme = "themes/" .. vim.g.theme
 local colors = require(theme)
 
 

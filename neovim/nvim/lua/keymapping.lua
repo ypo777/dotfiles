@@ -34,6 +34,7 @@ map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<leader>e", "<cmd>BufferLinePick<CR>")
 map('n', '<leader>p', "<cmd>BufferLineCloseRight<CR>")
 map('n', '<leader>q', "<cmd>BufferLineCloseLeft<CR>")
+map('n', '<leader>d', "<cmd>BufferLinePickClose<CR>")
 map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
 map2('n', '<leader>c', ':nohl<CR>', {noremap = true, silent = true})
 

@@ -1,8 +1,6 @@
 local icons = require('nvim-web-devicons')
 
-local name = "onedark_higl"
-vim.g.nvchad_theme = name
-local theme = vim.g.nvchad_theme
+local theme = "themes/" .. vim.g.theme
 local colors = require(theme)
 
 icons.setup {
