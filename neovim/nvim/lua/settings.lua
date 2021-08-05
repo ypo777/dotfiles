@@ -24,7 +24,7 @@ cmd([[au BufWritePre * :%s/\s\+$//e]]) -- Remove WhiteSpace On Save
 require('plugins_config/highlights')
 require('lspkind').init()
 require('plugins_config/icons')
--- require('plugins_config/bufferline_settings')
+require('plugins_config/bufferline_settings')
 require('plugins_config/statusline')
 require('neoscroll').setup()
 local gitsign = require('gitsigns')

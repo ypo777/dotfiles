@@ -1,9 +1,8 @@
-local present, bufferline = pcall(require, "bufferline")
 local name = "onedark_higl"
 vim.g.nvchad_theme = name
 local theme = vim.g.nvchad_theme
 local colors = require(theme)
-
+local bufferline = require('bufferline')
 -------------------- BUFFERLINE---------------------------
 bufferline.setup{
     options = {
