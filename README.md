@@ -9,6 +9,8 @@
                                                                                
                                                                               
 ```
+## My NeoVIM 
+![alt text](https://github.com/ypo777/dotfiles/blob/main/img/init_fox.png)
 ## Plugins List
 - [Paq](https://github.com/savq/paq-nvim) - Package Manager
 - [Lsp](https://github.com/neovim/nvim-lspconfig) 
