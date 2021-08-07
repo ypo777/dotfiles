@@ -7,6 +7,26 @@ local statusline = require('galaxyline')
 local condition  = require('galaxyline.condition')
 local gls = statusline.section
 
+local mode_color = function()
+  local mode_colors = {
+    n = colors.vibrant_green,
+    i = colors.red,
+    c = colors.teal,
+    V = colors.dark_purple,
+    [''] = colors.dark_purple,
+    v = colors.dark_purple,
+    R = colors.red,
+  }
+
+  local color = mode_colors[vim.fn.mode()]
+
+  if color == nil then
+    color = colors.red
+  end
+
+  return color
+end
+
 statusline.short_line_list = {" "}
 
 gls.left[1] = {
@@ -51,9 +71,9 @@ gls.left[5] = {
     current_dir = {
         provider = function()
             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return "  " .. dir_name .. " "
+            return " ﱮ " .. dir_name .. " "
         end,
-        highlight = {colors.grey_fg2, colors.lightbg2},
+        highlight = {colors.grey_fg2, colors.statusline_bg},
         separator = " ",
         separator_highlight = {colors.lightbg2, colors.statusline_bg}
     }
@@ -127,7 +147,7 @@ gls.right[1] = {
                 return ""
             end
         end,
-        highlight = {colors.grey_fg2, colors.statusline_bg}
+        highlight = {colors.white, colors.statusline_bg}
     }
 }
 
@@ -137,7 +157,7 @@ gls.right[2] = {
             return " "
         end,
         condition = require("galaxyline.condition").check_git_workspace,
-        highlight = {colors.grey_fg2, colors.statusline_bg},
+        highlight = {colors.gitcolor, colors.statusline_bg},
         separator = " ",
         separator_highlight = {colors.statusline_bg, colors.statusline_bg}
     }
@@ -147,18 +167,18 @@ gls.right[3] = {
     GitBranch = {
         provider = "GitBranch",
         condition = require("galaxyline.condition").check_git_workspace,
-        highlight = {colors.grey_fg2, colors.statusline_bg}
+        highlight = {colors.gitcolor, colors.statusline_bg}
     }
 }
 
 gls.right[4] = {
     viMode_icon = {
         provider = function()
-            return " "
+            return "  "
         end,
-        highlight = {colors.statusline_bg, colors.red},
-        separator = " ",
-        separator_highlight = {colors.red, colors.statusline_bg}
+        highlight = {colors.statusline_bg, colors.vibrant_green},
+        separator = " ▋",
+        separator_highlight = {colors.vibrant_green, colors.statusline_bg}
     }
 }
 
@@ -166,14 +186,15 @@ gls.right[5] = {
     ViMode = {
         provider = function()
             local alias = {
-                n = "Normal",
-                i = "Insert",
-                c = "Command",
-                V = "Visual",
-                [""] = "Visual",
-                v = "Visual",
-                R = "Replace"
+                n = "NORMAL",
+                i = "INSERT",
+                c = "COMMAND",
+                V = "VISUAL",
+                [""] = "VISUAL",
+                v = "VISUAL",
+                R = "REPLACE"
             }
+            vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
             local current_Mode = alias[vim.fn.mode()]
 
             if current_Mode == nil then
@@ -181,16 +202,16 @@ gls.right[5] = {
             else
                 return "  " .. current_Mode .. " "
             end
-        end,
-        highlight = {colors.red, colors.lightbg}
+          end
+        -- highlight = {colors.gitcolor, colors.lightbg}
     }
 }
 gls.right[6] = {
     some_icon = {
         provider = function()
-            return " "
+            return " ﴜ "
         end,
-        separator = "",
+        separator = " ▋",
         separator_highlight = {colors.green, colors.lightbg},
         highlight = {colors.lightbg, colors.green}
     }

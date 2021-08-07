@@ -18,18 +18,18 @@ local function fg_bg(group, fgcol, bgcol)
 end
 
 -- Blank Line
-fg("IndentBlanklineChar", colors.white)
+fg("IndentBlanklineChar", colors.grey_fg)
 
-fg("LineNr",colors.white)
+fg("LineNr",colors.grey)
 fg("cursorlinenr",colors.yellow)
 bg("cursorlinenr",colors.grey)
 
 -- Nvim Tree
 fg("NvimTreeFolderIcon", colors.blue)
 fg("NvimTreeFolderName", colors.blue)
-fg("NvimTreeOpenedFolderName", colors.green)
-fg("NvimTreeEmptyFolderName", colors.blue)
-fg("NvimTreeIndentMarker", colors.one_bg2)
+fg("NvimTreeOpenedFolderName", colors.blue)
+fg("NvimTreeEmptyFolderName", colors.red)
+fg("NvimTreeIndentMarker", colors.grey_fg)
 fg("NvimTreeVertSplit", colors.darker_black)
 bg("NvimTreeVertSplit", colors.darker_black)
 fg("NvimTreeEndOfBuffer", colors.darker_black)

@@ -1,6 +1,10 @@
 local lspconfig = require('lspconfig')
 local lspinstall = require('lspinstall')
 
+require('lspconfig').ansiblels.setup{}
+require'lspconfig'.yamlls.setup{}
+
+
 local function on_attach(client, bufnr)
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -122,3 +126,4 @@ vim.notify = function(msg, log_level, _opts)
         vim.api.nvim_echo({{msg}}, true, {})
     end
 end
+

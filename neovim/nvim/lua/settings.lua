@@ -2,33 +2,18 @@ local set = vim.g
 local opt = vim.opt
 local cmd = vim.cmd
 set.mapleader = " "
-
-opt.shortmess = 'c'
-opt.mouse = "a"
-opt.scrolloff = 4
-opt.shiftround = true
-opt.smartcase = true
-opt.termguicolors = true
-opt.hidden 	= true
-opt.cul		= true
-opt.number	= true
-opt.tabstop	= 2
-opt.expandtab	= true
-opt.shiftwidth	= 2
-opt.smartindent = true
-opt.lazyredraw = true
+set.termguicolors = true
+set.completeopt=menuone,noselect
 
 -- Plugins Call Settings
--- require('plugins_config/highlights')
 require('lspkind').init()
 require('plugins_config/icons')
 require('plugins_config/bufferline_settings')
 require('plugins_config/statusline')
 require('plugins_config/gitsigns')
-require('neoscroll').setup()
+require('neoscroll').setup({hide_cursor = false})
 require('plugins_config/general').colorizer()
 
--- cmd [[colorscheme onedark]]
 cmd([[au BufWritePre * :%s/\s\+$//e]]) -- Remove WhiteSpace On Save
 
 

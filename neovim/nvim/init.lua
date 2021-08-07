@@ -1,37 +1,61 @@
-vim.cmd 'packadd paq-nvim'
-vim.opt.mouse = "a"
-require 'paq'{
-	'savq/paq-nvim';
-  -- LspPlugins
-  'hrsh7th/nvim-compe';
-	'neovim/nvim-lspconfig';
-  'kabouzeid/nvim-lspinstall';
-  'onsails/lspkind-nvim';
-  'windwp/nvim-autopairs';
+--[[
+%%
+                        %%%%              %%%///\\//////%%               %%%%
+                            /\/%%    %//\\*****************\\//%%    %/\/
+                              %//**\\\*************************\\\\*\/%     %
+                %%%%              %\**\\*********************\\**\/        %
+      %/    %\******\\%             %***************************\         %   %/\\\\/%
+      /\\\\*****\%    %    %%        ***************************        %%   /////\****\%   /\
+      %/\\***\/%             /%      %\****\*******************/      %/%          %/\*******\%
+          %%                  /\/%     %/*******************\%     %%//               %/\\\\/%
+                               /\***\%    /\**************\%   %/\**\\
+                     %%%      %/\*****%  %% %\**\***\***/ %\   ******\%
+                 /\****\/%    %//\\\\**\/%%%   **\****/  %%%%/**\\\\\\/     %/\\\//%
+          %    /****\%         %//\\\\\\****\\//*****\%\\\*****\\\\\\/%    %%  %\***/%
+         %\\\\*****/            %%///\\\\******\*****\********\\\\///            /\\\\/
+          /\****\/                  %%//\\*******************\//%                 /\\\\**\\%
+                                          %\\*************/%                        //\\\//
+                          %//\/%            \****\/\\***\/           //\//%
+                        \***\/% %           %\\*%   %\*\%               /\\\/
+                      %****\                  /\\\\\\//                  \***\
+                     /*****                                              /****\
+                /\/\*****\%        /\\/%%                   %%/\\%        \*****/%%%
+                 /\****/%        %***\          %%\\/          /**\%       /\\****\/
+                                 \***/            \**/         %****          %%%%
+                                 \****           /***\         \****%
+                                 \**\\          /****/         \****%
+                               %\***\/         /****/          /\\**\%
+                             /\****\/          \****            %/\\\\*\%
+                               %%%%            /\***%              %%%%
+                                               %/\\\\%
+                                                 %//\\\/
+--]]--
+local set = vim.g
+local opt = vim.opt
+local cmd = vim.cmd
+set.mapleader = " "
 
-  -- Nvim Tree
-	'kyazdani42/nvim-tree.lua';
-	'kyazdani42/nvim-web-devicons';
-  -- Theme
-	'navarasu/onedark.nvim';
-  'norcalli/nvim-colorizer.lua';
-  -- Utilies
-  'terrortylor/nvim-comment';
-  'nvim-treesitter/nvim-treesitter';
-  'karb94/neoscroll.nvim';
-  'lukas-reineke/indent-blankline.nvim';
-  'glepnir/galaxyline.nvim';
-  'lewis6991/gitsigns.nvim';
-  'nvim-lua/plenary.nvim';
-  'akinsho/nvim-bufferline.lua';
-  'siduck76/nvim-base16.lua';
+opt.shortmess = 'c'
+opt.mouse = "a"
+opt.scrolloff = 4
+opt.shiftround = true
+opt.smartcase = true
+opt.termguicolors = true
+opt.hidden 	= true
+opt.cul		= true
+opt.number	= true
+opt.tabstop	= 2
+opt.expandtab	= true
+opt.shiftwidth	= 2
+opt.smartindent = true
+opt.lazyredraw = true
 
-}
+
+require('packerinit')
+require('plugins')
 require('theme')
 require('settings')
 require('keymapping')
 require('nvim-tree/main')
 require('nvim-compe/main')
 require('nvim-lspconfig/main')
-
-
