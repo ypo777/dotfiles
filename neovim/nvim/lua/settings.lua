@@ -1,16 +1,16 @@
 local set = vim.g
-local opt = vim.opt
 local cmd = vim.cmd
-set.mapleader = " "
-set.termguicolors = true
-set.completeopt=menuone,noselect
+
+
+cmd([[colorscheme onedark]])
 
 -- Plugins Call Settings
 require('lspkind').init()
 require('plugins_config/icons')
 require('plugins_config/bufferline_settings')
-require('plugins_config/statusline')
+require('statusline.customstatusline')
 require('plugins_config/gitsigns')
+require('plugins_config.highlights')
 require('neoscroll').setup({hide_cursor = false})
 require('plugins_config/general').colorizer()
 
@@ -41,6 +41,9 @@ local blankline = function()
       set.indentLine_enabled = 1
 end
 blankline()
+
+-- Don't show statusline on vim terinal
+vim.cmd [[ au TermOpen term://* setlocal nonumber laststatus=0 ]]
 
 
 

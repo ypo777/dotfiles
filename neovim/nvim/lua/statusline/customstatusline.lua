@@ -1,11 +1,14 @@
+local present1, gl = pcall(require, "galaxyline")
+local present2, condition = pcall(require, "galaxyline.condition")
 local theme = "themes/" .. vim.g.theme
 local colors = require(theme)
 
 
+if not (present1 or present2) then
+  return
+end
 
-local statusline = require('galaxyline')
-local condition  = require('galaxyline.condition')
-local gls = statusline.section
+local gls = gl.section
 
 local mode_color = function()
   local mode_colors = {
@@ -26,29 +29,58 @@ local mode_color = function()
 
   return color
 end
+local various_color = function ()
+    local alias = {
+                n = "NORMAL",
+                i = "INSERT",
+                c = "COMMAND",
+                V = "VISUAL",
+                [""] = "VISUAL",
+                v = "VISUAL",
+                R = "REPLACE"
+     }
+  local mode = alias[vim.fn.mode()]
 
-statusline.short_line_list = {" "}
+end
+gl.short_line_list = {" "}
 
 gls.left[1] = {
-  FirstElement = {
+    FirstElement = {
         provider = function()
-            return "▋"
+            return " "
         end,
-        highlight = {colors.nord_blue, colors.nord_blue}
+        highlight = {colors.grey_fg, colors.statusline_bg}
     }
 }
-
 gls.left[2] = {
-     statusIcon = {
-         provider = function()
-             return "  "
-         end,
-         highlight = {colors.statusline_bg, colors.nord_blue},
-         separator = "  ",
-         separator_highlight = {colors.nord_blue, colors.lightbg}
+  ViMode = {
+        provider = function()
+            local alias = {
+                n = "NORMAL",
+                i = "INSERT",
+                c = "COMMAND",
+                V = "VISUAL",
+                [""] = "VISUAL",
+                v = "VISUAL",
+                R = "REPLACE"
+            }
+            vim.api.nvim_command('hi GalaxyViMode guifg=' ..colors.one_bg)
+            vim.api.nvim_command('hi GalaxyViMode gui=bold guibg=' ..mode_color())
+
+            -- vim.api.nvim_command('hi GalaxyViModeReverse guibg='.. colors.one_bg)
+
+            local current_Mode = alias[vim.fn.mode()]
+
+            if current_Mode == nil then
+                return "  Terminal "
+            else
+                return "  " .. current_Mode .. " "
+            end
+          end,
+          separator = " ",
+          separator_highlight = {colors.statusline_bg,colors.statusline_bg}
     }
 }
-
 gls.left[3] = {
     FileIcon = {
         provider = "FileIcon",
@@ -62,7 +94,7 @@ gls.left[4] = {
         provider = {"FileName"},
         condition = condition.buffer_not_empty,
         highlight = {colors.white, colors.lightbg},
-        separator = " ",
+        separator = " ",
         separator_highlight = {colors.lightbg, colors.lightbg2}
     }
 }
@@ -71,14 +103,13 @@ gls.left[5] = {
     current_dir = {
         provider = function()
             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-            return " ﱮ " .. dir_name .. " "
+            return "  " .. dir_name .. " "
         end,
-        highlight = {colors.grey_fg2, colors.statusline_bg},
-        separator = " ",
+        highlight = {colors.grey_fg2, colors.lightbg2},
+        separator = " ",
         separator_highlight = {colors.lightbg2, colors.statusline_bg}
     }
 }
-
 
 local checkwidth = function()
     local squeeze_width = vim.fn.winwidth(0) / 2
@@ -87,7 +118,6 @@ local checkwidth = function()
     end
     return false
 end
-
 gls.left[6] = {
     DiffAdd = {
         provider = "DiffAdd",
@@ -130,6 +160,7 @@ gls.left[10] = {
         highlight = {colors.yellow, colors.statusline_bg}
     }
 }
+
 gls.right[1] = {
     lsp_status = {
         provider = function()
@@ -170,7 +201,6 @@ gls.right[3] = {
         highlight = {colors.gitcolor, colors.statusline_bg}
     }
 }
-
 gls.right[4] = {
     viMode_icon = {
         provider = function()
@@ -178,46 +208,11 @@ gls.right[4] = {
         end,
         highlight = {colors.statusline_bg, colors.vibrant_green},
         separator = " ▋",
-        separator_highlight = {colors.vibrant_green, colors.statusline_bg}
+        separator_highlight = {colors.vibrant_green,colors.statusline_bg}
+
     }
 }
-
 gls.right[5] = {
-    ViMode = {
-        provider = function()
-            local alias = {
-                n = "NORMAL",
-                i = "INSERT",
-                c = "COMMAND",
-                V = "VISUAL",
-                [""] = "VISUAL",
-                v = "VISUAL",
-                R = "REPLACE"
-            }
-            vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color())
-            local current_Mode = alias[vim.fn.mode()]
-
-            if current_Mode == nil then
-                return "  Terminal "
-            else
-                return "  " .. current_Mode .. " "
-            end
-          end
-        -- highlight = {colors.gitcolor, colors.lightbg}
-    }
-}
-gls.right[6] = {
-    some_icon = {
-        provider = function()
-            return " ﴜ "
-        end,
-        separator = " ▋",
-        separator_highlight = {colors.green, colors.lightbg},
-        highlight = {colors.lightbg, colors.green}
-    }
-}
-
-gls.right[7] = {
     line_percentage = {
         provider = function()
             local current_line = vim.fn.line(".")

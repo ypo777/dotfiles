@@ -34,6 +34,9 @@ local set = vim.g
 local opt = vim.opt
 local cmd = vim.cmd
 set.mapleader = " "
+set.mapleader = " "
+set.termguicolors = true
+set.t_Co = 256
 
 opt.shortmess = 'c'
 opt.mouse = "a"

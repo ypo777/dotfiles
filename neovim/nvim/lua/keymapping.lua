@@ -18,6 +18,11 @@ map('n', '<C-h>', '<cmd>source %<CR>')
 map('n', '<leader>u','<cmd>source ~/.config/nvim/lua/plugins_config/highlights.lua<CR>')
 map('n', '<leader>o', 'm`o<Esc>``') -- Add new line below the cursor wihout entering INSERT Mode
 
+-- OPEN TERMINALS --
+map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
+map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
+map("n", "<C-t>t", ":terminal <CR>", opt) -- term buffer
+map("t", "jk", "<C-\\><C-n>", opt)
 
 map("n", "<C-a>", ":%y+<CR>", opt) -- Copy the whole file content
 map('n', '<leader>c', ':nohl<CR>' )

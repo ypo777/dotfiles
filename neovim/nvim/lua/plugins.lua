@@ -36,6 +36,7 @@ return packer.startup(
   use'nvim-lua/plenary.nvim'
   use'akinsho/nvim-bufferline.lua'
   use'siduck76/nvim-base16.lua'
+  use 'simrat39/symbols-outline.nvim'
 
 
 
