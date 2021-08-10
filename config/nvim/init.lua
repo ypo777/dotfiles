@@ -32,7 +32,6 @@
 --]]--
 local set = vim.g
 local opt = vim.opt
-local cmd = vim.cmd
 set.mapleader = " "
 set.mapleader = " "
 set.termguicolors = true

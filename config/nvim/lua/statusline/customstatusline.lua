@@ -29,19 +29,6 @@ local mode_color = function()
 
   return color
 end
-local various_color = function ()
-    local alias = {
-                n = "NORMAL",
-                i = "INSERT",
-                c = "COMMAND",
-                V = "VISUAL",
-                [""] = "VISUAL",
-                v = "VISUAL",
-                R = "REPLACE"
-     }
-  local mode = alias[vim.fn.mode()]
-
-end
 gl.short_line_list = {" "}
 
 gls.left[1] = {
