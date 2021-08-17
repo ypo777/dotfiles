@@ -93,6 +93,9 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
+# Finder: allow text selection in Quick Look
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
@@ -226,6 +229,13 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 defaults write com.apple.commerce AutoUpdate -bool true
 
 ###############################################################################
+#Security                                                                     #
+###############################################################################
+
+#Enable FireWall
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+
+###############################################################################
 # Messages                                                                    #
 ###############################################################################
 
@@ -256,4 +266,12 @@ defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
 defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
+
+
+# Restart affected applications if `--no-restart` flag is not present.
+if [[ ! ($* == *--no-restart*) ]]; then
+  for app in "cfprefsd" "Dock" "Finder" "SystemUIServer" ; do
+    killall "${app}" > /dev/null 2>&1
+  done
+fi
 echo "Done. Note that some of these changes require a logout/restart to take effect."
