@@ -1,3 +1,22 @@
+env:
+  TERM: xterm-256color
+window:
+  padding:
+    x: 0
+    y: 0
+bell:
+  animation: EaseOutExpo
+  duration: 0
+
+cursor:
+  style:
+    shape: Beam
+    blinking: always
+
+mouse:
+  hide_when_typing: true
+
+background_opacity: 0.9
 font:
   normal:
     family: FiraCode NF
@@ -8,33 +27,31 @@ font:
   glyph_offset:
    x: -1
    y: 0
-# Colors (lovelace)
 colors:
   bright:
-    black: '#414458'
-    blue: '#556fff'
-    cyan: '#3fdcee'
-    green: '#18e3c8'
-    magenta: '#b043d1'
-    red: '#ff4971'
-    white: '#bebec1'
-    yellow: '#ff8037'
+    black: '#4d4d4d'
+    blue: '#6ca4f8'
+    cyan: '#2b7489'
+    green: '#56d364'
+    magenta: '#db61a2'
+    red: '#f78166'
+    white: '#ffffff'
+    yellow: '#e3b341'
   cursor:
-    cursor: '#c574dd'
+    cursor: '#c9d1d9'
     text: '#ffffff'
   normal:
-    black: '#282a36'
-    blue: '#8897f4'
-    cyan: '#79e6f3'
-    green: '#5adecd'
-    magenta: '#c574dd'
-    red: '#f37f97'
-    white: '#fdfdfd'
-    yellow: '#f2a272'
+    black: '#000000'
+    blue: '#6ca4f8'
+    cyan: '#2b7489'
+    green: '#56d364'
+    magenta: '#db61a2'
+    red: '#f78166'
+    white: '#ffffff'
+    yellow: '#e3b341'
   primary:
-    background: '#1d1f28'
-    foreground: '#fdfdfd'
+    background: '#101216'
+    foreground: '#8b949e'
   selection:
-    background: '#c1deff'
-    text: '#000000'
-
+    background: '#3b5070'
+    text: '#ffffff'
