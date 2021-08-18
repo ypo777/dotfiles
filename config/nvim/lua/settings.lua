@@ -44,6 +44,3 @@ blankline()
 
 -- Don't show statusline on vim terinal
 vim.cmd [[ au TermOpen term://* setlocal nonumber laststatus=0 ]]
-
-
-

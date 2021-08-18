@@ -37,6 +37,7 @@ return packer.startup(
   use'akinsho/nvim-bufferline.lua'
   use'siduck76/nvim-base16.lua'
   use 'simrat39/symbols-outline.nvim'
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
 
 
