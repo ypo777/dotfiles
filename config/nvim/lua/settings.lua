@@ -2,7 +2,6 @@ local set = vim.g
 local cmd = vim.cmd
 
 
-cmd([[colorscheme onedark]])
 
 -- Plugins Call Settings
 require('lspkind').init()

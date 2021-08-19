@@ -24,8 +24,8 @@ return packer.startup(
 	use'kyazdani42/nvim-tree.lua'
 	use'kyazdani42/nvim-web-devicons'
   -- Theme
-	use'navarasu/onedark.nvim';
   use'norcalli/nvim-colorizer.lua'
+  use 'NvChad/nvim-base16.lua'
   -- Utilies
   use'terrortylor/nvim-comment'
   use'nvim-treesitter/nvim-treesitter'
