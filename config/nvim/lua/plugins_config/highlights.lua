@@ -20,9 +20,9 @@ end
 -- Blank Line
 fg("IndentBlanklineChar", colors.grey_fg)
 
-fg("LineNr",colors.grey)
-fg("cursorlinenr",colors.yellow)
-bg("cursorlinenr",colors.grey)
+fg("LineNr",colors.grey_fg2)
+fg("cursorlinenr",colors.red)
+bg("cursorlinenr",colors.darker_black)
 
 -- Nvim Tree
 fg("NvimTreeFolderIcon", colors.blue)
