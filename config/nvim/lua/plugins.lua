@@ -19,13 +19,14 @@ return packer.startup(
   use'kabouzeid/nvim-lspinstall'
  use 'onsails/lspkind-nvim'
  use 'windwp/nvim-autopairs'
+  use 'glepnir/lspsaga.nvim'
 
   -- Nvim Tree
 	use'kyazdani42/nvim-tree.lua'
 	use'kyazdani42/nvim-web-devicons'
   -- Theme
   use'norcalli/nvim-colorizer.lua'
-  use 'NvChad/nvim-base16.lua'
+  use 'norcalli/nvim-base16.lua'
   -- Utilies
   use'terrortylor/nvim-comment'
   use'nvim-treesitter/nvim-treesitter'
@@ -38,6 +39,7 @@ return packer.startup(
   use'siduck76/nvim-base16.lua'
   use 'simrat39/symbols-outline.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use 'yamatsum/nvim-cursorline'
 
 
 
