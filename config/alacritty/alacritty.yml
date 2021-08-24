@@ -16,10 +16,10 @@ cursor:
 mouse:
   hide_when_typing: true
 
-background_opacity: 0.9
 font:
   normal:
-    family: FiraCode NF
+    family: Hack Nerd Font
+    style: Regular
   size: 14.0
   offset:
    x: 0
@@ -27,31 +27,37 @@ font:
   glyph_offset:
    x: -1
    y: 0
+draw_bold_text_with_bright_colors: true
+
 colors:
-  bright:
-    black: '#4d4d4d'
-    blue: '#6ca4f8'
-    cyan: '#2b7489'
-    green: '#56d364'
-    magenta: '#db61a2'
-    red: '#f78166'
-    white: '#ffffff'
-    yellow: '#e3b341'
-  cursor:
-    cursor: '#c9d1d9'
-    text: '#ffffff'
-  normal:
-    black: '#000000'
-    blue: '#6ca4f8'
-    cyan: '#2b7489'
-    green: '#56d364'
-    magenta: '#db61a2'
-    red: '#f78166'
-    white: '#ffffff'
-    yellow: '#e3b341'
+
   primary:
-    background: '#101216'
-    foreground: '#8b949e'
+    background: '#282a36'
+    foreground: '#eff0eb'
+
+  cursor:
+    cursor: '#97979b'
+
   selection:
-    background: '#3b5070'
-    text: '#ffffff'
+    text:       '#282a36'
+    background: '#feffff'
+
+  normal:
+    black:   '#282a36'
+    red:     '#ff5c57'
+    green:   '#5af78e'
+    yellow:  '#f3f99d'
+    blue:    '#57c7ff'
+    magenta: '#ff6ac1'
+    cyan:    '#9aedfe'
+    white:   '#f1f1f0'
+
+  bright:
+    black:   '#686868'
+    red:     '#ff5c57'
+    green:   '#5af78e'
+    yellow:  '#f3f99d'
+    blue:    '#57c7ff'
+    magenta: '#ff6ac1'
+    cyan:    '#9aedfe'
+    white:   '#eff0eb'

@@ -2,7 +2,6 @@ local set = vim.g
 local cmd = vim.cmd
 
 
-cmd([[colorscheme onedark]])
 
 -- Plugins Call Settings
 require('lspkind').init()
@@ -10,10 +9,9 @@ require('plugins_config/icons')
 require('plugins_config/bufferline_settings')
 require('statusline.customstatusline')
 require('plugins_config/gitsigns')
-require('plugins_config.highlights')
 require('neoscroll').setup({hide_cursor = false})
 require('plugins_config/general').colorizer()
-
+require('plugins_config/general').signature()
 cmd([[au BufWritePre * :%s/\s\+$//e]]) -- Remove WhiteSpace On Save
 
 

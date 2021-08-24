@@ -27,9 +27,9 @@ map("t", "jk", "<C-\\><C-n>", opt)
 map("n", "<C-a>", ":%y+<CR>", opt) -- Copy the whole file content
 map('n', '<leader>c', ':nohl<CR>' )
 --Package
-map('n', '<leader>l', '<cmd>PaqList<CR>')
-map('n', '<leader>p', '<cmd>PaqInstall<CR>')
-
+map('n', '<leader>l', '<cmd>PackerStatus<CR>')
+map('n', '<leader>L', '<cmd>PackerSync<CR>')
+map('n', '<leader>p', '<cmd>PackerInstall<CR>')
 -- Comment
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)

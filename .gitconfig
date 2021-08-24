@@ -30,3 +30,6 @@
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
+[user]
+	name = ypo777
+	email = yanpaingoo008ypo@gmail.com
