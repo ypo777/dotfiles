@@ -69,8 +69,8 @@ local function setup_servers()
                                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                                 [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
                             },
-                            maxPreload = 1000,
-                            preloadFileSize = 1000
+                            maxPreload = 100000,
+                            preloadFileSize = 100000
                         },
                         telemetry = {
                             enable = false
