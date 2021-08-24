@@ -22,11 +22,12 @@ local colors = {
         brown = "#b2643c",
         line = "#3a404c",
         pink = "#FF5370",
-        grey = "#474d59",
         statusline_bg = "#22262e",
         lightbg = "#2d3139",
         lightbg2 = "#262a32",
-        gitcolor ="#F54D27"
+        gitcolor ="#F54D27",
+        dark_purple = "#c882e7",
+        vibrant_green  = "#7eca9c"
 }
 
 return colors
