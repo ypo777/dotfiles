@@ -17,8 +17,8 @@ return packer.startup(
   use'hrsh7th/nvim-compe'
 	use'neovim/nvim-lspconfig'
   use'kabouzeid/nvim-lspinstall'
- use 'onsails/lspkind-nvim'
- use 'windwp/nvim-autopairs'
+  use 'onsails/lspkind-nvim'
+  use 'windwp/nvim-autopairs'
   use 'glepnir/lspsaga.nvim'
 
   -- Nvim Tree
@@ -36,7 +36,6 @@ return packer.startup(
   use'lewis6991/gitsigns.nvim'
   use'nvim-lua/plenary.nvim'
   use'akinsho/nvim-bufferline.lua'
-  use'siduck76/nvim-base16.lua'
   use 'simrat39/symbols-outline.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   use 'yamatsum/nvim-cursorline'

@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/yanpaingoo/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/yanpaingoo/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/yanpaingoo/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/yanpaingoo/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/yanpaingoo/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/ypo777/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/ypo777/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/ypo777/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/ypo777/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/ypo777/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,87 +71,107 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["galaxyline.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
+  },
+  ["lspsaga.nvim"] = {
+    loaded = true,
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    commands = { "MarkdownPreview" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
   },
   ["neoscroll.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
   },
   ["nvim-base16.lua"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-base16.lua"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-base16.lua"
   },
   ["nvim-bufferline.lua"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
   },
   ["nvim-comment"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-comment"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-comment"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-compe"
+  },
+  ["nvim-cursorline"] = {
+    loaded = true,
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-cursorline"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-lspinstall"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/onedark.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/yanpaingoo/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/Users/ypo777/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command! -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args> }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 if should_profile then save_profiles() end
 
 end)
