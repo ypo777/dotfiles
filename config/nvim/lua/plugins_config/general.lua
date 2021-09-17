@@ -7,4 +7,9 @@ M.colorizer = function()
 
 end
 
+M.signature = function()
+  local l_saga = require 'lspsaga'
+  l_saga.init_lsp_saga()
+end
+
 return M

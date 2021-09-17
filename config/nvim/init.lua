@@ -37,6 +37,7 @@ set.mapleader = " "
 set.termguicolors = true
 set.t_Co = 256
 
+opt.clipboard="unnamedplus"
 opt.shortmess = 'c'
 opt.mouse = "a"
 opt.scrolloff = 4
