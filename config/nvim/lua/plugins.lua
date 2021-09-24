@@ -1,4 +1,4 @@
-local present, _ = pcall(require, "packerInit")
+local present, _ = pcall(require, "packerinit")
 local packer
 
 if present then
