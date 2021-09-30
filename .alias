@@ -6,6 +6,23 @@ alias de="cd ~/Developer"
 alias dl="cd ~/Downloads"
 alias ds="cd ~/Desktop"
 
+#Colorls
+alias report='colorls -r'
+alias lc='colorls -lA --sd'
+alias ol='colorls -1'
+alias la='colorls -a'
+alias lA='colorls -A'
+alias dir='colorls -d'
+alias sortd='colorls --sd'
+alias sortf='colorls --sf'
+alias lf='colorls -f'
+alias ls='colorls -l'
+alias lr='colorls -r'
+alias ltree='colorls --tree'
+alias gs='colorls --gs'
+alias gtree='colorls --gs spec -t'
+alias gl='colorls --gs spec -l'
+
 #Shortcuts
 alias g="git"
 
