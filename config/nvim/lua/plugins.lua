@@ -20,10 +20,16 @@ return packer.startup(
   use 'onsails/lspkind-nvim'
   use 'windwp/nvim-autopairs'
   use 'glepnir/lspsaga.nvim'
-
   -- Nvim Tree
-	use'kyazdani42/nvim-tree.lua'
+	use { 'kyazdani42/nvim-tree.lua',
+      config = require("nvim-tree.main"),
+}
 	use'kyazdani42/nvim-web-devicons'
+  -- Finder
+  use {
+  'nvim-telescope/telescope.nvim',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
   -- Theme
   use'norcalli/nvim-colorizer.lua'
   use 'norcalli/nvim-base16.lua'

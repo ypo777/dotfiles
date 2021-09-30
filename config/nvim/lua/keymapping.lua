@@ -49,6 +49,12 @@ map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
 map('n', '<leader>r','<cmd>NvimTreeRefresh<CR>')
 map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>',opt)
 
+-- Telescope
+map("n", "<leader>ff","<cmd>Telescope find_files<CR>" )
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+map("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+map("n", "<leader>fh" ,"<cmd>Telescope help_tags<cr>")
+
 --Auto-Complete & Lsp
 
 local t = function(str)
