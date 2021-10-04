@@ -1,9 +1,9 @@
-vim.cmd("packadd packer.nvim")
+vim.cmd[["packadd packer.nvim"]]
 
 local present, packer = pcall(require, "packer")
 
 if not present then
-    local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+    local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
     print("Cloning packer..")
     -- remove the dir before cloning
@@ -12,9 +12,9 @@ if not present then
         {
             "git",
             "clone",
+	    "--depth",
+	    "1",
             "https://github.com/wbthomason/packer.nvim",
-            "--depth",
-            "20",
             packer_path
         }
     )
