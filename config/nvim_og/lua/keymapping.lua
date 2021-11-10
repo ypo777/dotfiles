@@ -18,14 +18,21 @@ map('n', '<C-h>', '<cmd>source %<CR>')
 map('n', '<leader>u','<cmd>source ~/.config/nvim/lua/plugins_config/highlights.lua<CR>')
 map('n', '<leader>o', 'm`o<Esc>``') -- Add new line below the cursor wihout entering INSERT Mode
 
+-- OPEN TERMINALS --
+map("n", "<C-l>", ":vnew +terminal | setlocal nobuflisted <CR>", opt) -- term over right
+map("n", "<C-x>", ":10new +terminal | setlocal nobuflisted <CR>", opt) --  term bottom
+map("n", "<C-t>t", ":terminal <CR>", opt) -- term buffer
+map("t", "jk", "<C-\\><C-n>", opt)
+
+map("n", "<C-a>", ":%y+<CR>", opt) -- Copy the whole file content
+map('n', '<leader>c', ':nohl<CR>' )
 --Package
 map('n', '<leader>l', '<cmd>PackerStatus<CR>')
 map('n', '<leader>L', '<cmd>PackerSync<CR>')
 map('n', '<leader>p', '<cmd>PackerInstall<CR>')
---NvimTree
-map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
-map('n', '<leader>r','<cmd>NvimTreeRefresh<CR>')
-map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>',opt)
+-- Comment
+map("n", "<leader>/", ":CommentToggle<CR>", opt)
+map("v", "<leader>/", ":CommentToggle<CR>", opt)
 
 -- BufferLine
 map("n", "<TAB>", ":BufferLineCycleNext<CR>", opt)
@@ -37,9 +44,10 @@ map('n', '<leader>d', "<cmd>BufferLinePickClose<CR>")
 map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
 map2('n', '<leader>c', ':nohl<CR>', {noremap = true, silent = true})
 
--- Comment
-map("n", "<leader>/", ":CommentToggle<CR>", opt)
-map("v", "<leader>/", ":CommentToggle<CR>", opt)
+--NvimTree
+map('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+map('n', '<leader>r','<cmd>NvimTreeRefresh<CR>')
+map('n', '<leader>n', '<cmd>NvimTreeFindFile<CR>',opt)
 
 -- Telescope
 map("n", "<leader>ff","<cmd>Telescope find_files<CR>" )
@@ -107,3 +115,4 @@ map("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 map("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 map("i", "<CR>", "v:lua.completions()", {expr = true})
+

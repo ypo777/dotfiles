@@ -5,7 +5,7 @@ vim.g.theme = main_theme
 
 if present then
   base16(base16.themes[main_theme], true)
-  require 'utils.highlights'
+  require 'plugins_config.highlights'
   return true
 else
   return false

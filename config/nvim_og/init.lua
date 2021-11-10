@@ -53,11 +53,12 @@ opt.shiftwidth	= 2
 opt.smartindent = true
 opt.lazyredraw = true
 
-require('plugin')
+
+require('packerinit')
+require('plugins')
 require('theme')
 require('settings')
 require('keymapping')
-require('nvim-lsp/main')
+require('nvim-tree/main')
 require('nvim-compe/main')
-require('nvim-tree.main')
-
+require('nvim-lspconfig/main')

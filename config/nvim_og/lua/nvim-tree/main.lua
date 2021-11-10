@@ -1,5 +1,6 @@
 local present, nvimtree = pcall(require,"nvim-tree")
 local g = vim.g
+g.nvim_tree_auto_open = 1
 g.nvim_tree_width     = 25
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_indent_markers = 1
@@ -34,6 +35,7 @@ g.nvim_tree_icons = {
     }
 }
 nvimtree.setup {
+   lsp_diagnostics = false,
    disable_netrw = true,
    hijack_netrw = true,
    ignore_ft_on_setup = { "dashboard" },
