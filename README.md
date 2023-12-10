@@ -1,7 +1,7 @@
 ## My dotfiles
 
 - MacOS
-- Fedora
+- Fedora(39)
 
 ### Included Configurations
 
