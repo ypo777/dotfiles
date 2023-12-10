@@ -1,7 +1,7 @@
 ## My dotfiles
 
 - MacOS
-- Fedora
+- Manjro(39)
 
 ### Included Configurations
 
