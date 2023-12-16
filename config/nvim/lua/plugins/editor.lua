@@ -12,6 +12,10 @@ return {
     },
   },
   {
+    enabled = false,
+    "nvim-neo-tree/neo-tree.nvim",
+  },
+  {
     "telescope.nvim",
     dependencies = {
       "nvim-telescope/telescope-file-browser.nvim",
