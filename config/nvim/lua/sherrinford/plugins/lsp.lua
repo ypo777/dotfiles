@@ -19,7 +19,6 @@ return {
 					-- Programming Languages
 					"lua_ls",
 					"gopls",
-					"tsserver",
 					"pyright",
 					"html",
 					"cssls",
