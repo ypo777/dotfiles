@@ -1,44 +1,43 @@
 return {
-	"rose-pine/neovim",
-	config = function()
-		local rosepine = require("rose-pine")
-		rosepine.setup({
-			variant = "moon",
-			styles = {
-				bold = true,
-				italic = true,
-			},
-			groups = {
-				border = "muted",
-				link = "iris",
-				panel = "surface",
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000, -- Ensures it loads early
+		config = function()
+			require("onedark").setup({
+				style = "dark",
 
-				error = "love",
-				hint = "iris",
-				info = "foam",
-				note = "pine",
-				todo = "rose",
-				warn = "gold",
+				colors = {
+					-- Your specific background color
+					bg0 = "#1b1c1e", -- RGB(27,28,30)
+					bg1 = "#1f2022", -- Slightly lighter for contrast
+					bg2 = "#252628", -- For floating windows
+					bg3 = "#2a2b2d", -- For highlights
 
-				git_add = "foam",
-				git_change = "rose",
-				git_delete = "love",
-				git_dirty = "rose",
-				git_ignore = "muted",
-				git_merge = "iris",
-				git_rename = "pine",
-				git_stage = "iris",
-				git_text = "rose",
-				git_untracked = "subtle",
+					-- Rest of the colors
+					fg = "#abb2bf", -- Foreground text
+					bright_orange = "#ff9e64", -- Functions
+					yellow = "#e5c07b", -- Variables
+					red = "#e86671", -- Keywords
+					green = "#98c379", -- Strings
+					purple = "#c678dd", -- Constants
+					blue = "#61afef", -- Tags
+					cyan = "#56b6c2", -- Special
+				},
 
-				h1 = "iris",
-				h2 = "foam",
-				h3 = "rose",
-				h4 = "gold",
-				h5 = "pine",
-				h6 = "foam",
-			},
-		})
-		vim.cmd("colorscheme rose-pine")
-	end,
+				-- Customization options
+				transparent = false,
+				term_colors = true,
+				code_style = {
+					comments = "italic",
+					functions = "bold",
+					keywords = "none",
+					strings = "none",
+					variables = "none",
+				},
+			})
+
+			-- Load the colorscheme
+			vim.cmd.colorscheme("onedark")
+		end,
+	},
 }
