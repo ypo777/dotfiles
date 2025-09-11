@@ -33,3 +33,6 @@
 [user]
 	name = ypo777
 	email = yanpaingoo008ypo@gmail.com
+	signingkey = 65B17E0C5FC47708
+[commit]
+	gpgsign = true
