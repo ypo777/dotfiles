@@ -5,7 +5,6 @@ return {
       require("mason").setup()
     end,
   },
-  { "hrsh7th/cmp-nvim-lsp" },
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
@@ -13,7 +12,7 @@ return {
         ensure_installed = { "lua_ls", "rust_analyzer", "bashls", "gopls", "vtsls", "eslint", "terraformls" },
         handlers = {
           function(server_name)
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
             local server_configs = {
               vtsls = {
                 capabilities = capabilities,
@@ -53,7 +52,6 @@ return {
                 },
               },
               eslint = {
-                capabilities = capabilities,
                 settings = {
                   codeAction = {
                     disableRuleComment = {
@@ -115,15 +113,14 @@ return {
       })
     end,
   },
-
   { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
   {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
     event = { "BufReadPre", "BufNewFile" },
     dependenices = {
-      { "hrsh7th/cmp-nvim-lsp" },
       { "williamboman/mason-lspconfig.nvim" },
+      { 'saghen/blink.cmp' }
     },
     config = function()
       local lsp_zero = require("lsp-zero")
@@ -157,25 +154,6 @@ return {
       })
     end,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      local cmp = require("cmp")
-      cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-          ["<Tab>"] = cmp.mapping.select_next_item(),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        }),
-        sources = {
-          { name = "nvim_lsp" },
-          { name = "buffer" },
-          { name = "path" },
-        },
-      })
-    end,
-  },
-  { "L3MON4D3/LuaSnip" },
   {
     "stevearc/conform.nvim",
     opts = {},
