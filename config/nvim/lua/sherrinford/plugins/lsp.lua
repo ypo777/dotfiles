@@ -12,10 +12,8 @@ return {
         ensure_installed = { "lua_ls", "rust_analyzer", "bashls", "gopls", "vtsls", "eslint", "terraformls" },
         handlers = {
           function(server_name)
-            local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
             local server_configs = {
               vtsls = {
-                capabilities = capabilities,
                 filetypes = {
                   "javascript",
                   "javascriptreact",
@@ -39,6 +37,12 @@ return {
                     updateImportsOnFileMove = { enabled = "always" },
                     suggest = {
                       completeFunctionCalls = true,
+                      autoImports = true,
+                      includeCompletionsForModuleExports = true
+                    },
+                    perferences = {
+                      includePackageJsonAutoImports = "on",
+                      allowIncompleteCompletions = true,
                     },
                     inlayHints = {
                       enumMemberValues = { enabled = true },
@@ -85,7 +89,6 @@ return {
                 },
               },
               lua_ls = {
-                capabilities = capabilities,
                 settings = {
                   Lua = {
                     runtime = {
@@ -106,7 +109,8 @@ return {
               },
 
             }
-            local config = server_configs[server_name] or { capabilities = capabilities }
+            local config = server_configs[server_name] or
+                { capabilities = require('blink.cmp').get_lsp_capabilities(server_configs.capabilities) }
             require("lspconfig")[server_name].setup(config)
           end,
         },
@@ -176,11 +180,17 @@ return {
           lua = { "stylua" },
           javascript = { { "prettierd", "prettier" } },
         },
-        format_on_save = {
-          timeout_ms = 500,
-          lsp_format = "fallback",
-        },
         formatters = {
+          prettierd = {
+            prepend_args = {
+              "--bracket-spacing = false"
+            },
+          },
+          prettier = {
+            prepend_args = {
+              "--bracket-spacing = false"
+            },
+          },
           shfmt = {
             prepend_args = { "-i", "2", "-ci" }, -- 2 spaces, indent case statements
           },
