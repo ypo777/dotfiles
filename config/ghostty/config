@@ -1,0 +1,32 @@
+# Shell
+command = /opt/homebrew/bin/fish
+
+# Font
+font-family = "FiraCode Nerd Font"
+font-size = 14
+font-feature = +liga
+font-feature = +calt
+
+# Theme
+theme = "Catppuccin Mocha"
+background-opacity = 0.8
+background-blur = true
+
+# Window
+window-padding-x = 8
+window-padding-y = 4
+macos-titlebar-style = tabs
+
+# macOS - option key sends alt sequences (needed for fish/fzf keybinds)
+macos-option-as-alt = true
+
+# Quick terminal (drop-down, toggle with global hotkey)
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# Splits
+keybind = cmd+d=new_split:right
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+h=goto_split:left
+keybind = cmd+j=goto_split:bottom
+keybind = cmd+k=goto_split:top
+keybind = cmd+l=goto_split:right

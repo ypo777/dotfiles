@@ -7,7 +7,7 @@ return {
     config = function()
       local mason = require("mason")
       local mason_tool_installer = require("mason-tool-installer")
-      
+
       mason.setup({
         ui = {
           icons = {
@@ -17,21 +17,21 @@ return {
           },
         },
       })
-      
+
       mason_tool_installer.setup({
         ensure_installed = {
           -- Formatters
           "prettier", -- prettier formatter
           "prettierd", -- faster prettier
           "stylua", -- lua formatter
-          
+
           -- Linters
           "hadolint", -- Dockerfile linter
         },
       })
     end,
   },
-  
+
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
@@ -83,21 +83,17 @@ return {
                 },
               },
               dockerls = {
-                -- Docker language server for Dockerfile support
                 filetypes = { "dockerfile" },
                 settings = {},
               },
               docker_compose_language_service = {
-                -- Docker Compose language server
                 filetypes = { "yaml.docker-compose" },
                 settings = {},
               },
               eslint = {
-                -- Let ESLint use project configuration
-                -- Will respect eslint.config.js, .eslintrc.js, etc.
                 settings = {
                   validate = "on",
-                  format = false,  -- Let conform handle formatting
+                  format = false,
                   workingDirectory = { mode = "auto" },
                 },
               },
@@ -121,10 +117,10 @@ return {
                 },
               },
             }
-            
+
             local config = server_configs[server_name] or {}
             config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-            
+
             -- Disable formatting for vtsls and eslint (let conform handle it)
             if server_name == "vtsls" or server_name == "eslint" then
               config.on_attach = function(client, bufnr)
@@ -132,16 +128,14 @@ return {
                 client.server_capabilities.documentRangeFormattingProvider = false
               end
             end
-            
+
             require("lspconfig")[server_name].setup(config)
           end,
         },
       })
     end,
   },
-  
-  { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
-  
+
   {
     "neovim/nvim-lspconfig",
     cmd = { "LspInfo", "LspInstall", "LspStart" },
@@ -160,41 +154,51 @@ return {
       { 'saghen/blink.cmp' }
     },
     config = function()
-      local lsp_zero = require("lsp-zero")
-      lsp_zero.extend_lspconfig()
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+        callback = function(event)
+          local bufnr = event.buf
+          local opts = { buffer = bufnr, silent = true }
+          local builtin = require('telescope.builtin')
 
-      lsp_zero.on_attach(function(client, bufnr)
-        lsp_zero.default_keymaps({ buffer = bufnr })
-        local opts = { buffer = bufnr, silent = true }
-        
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+          -- LSP navigation through telescope
+          vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+          vim.keymap.set("n", "gr", builtin.lsp_references, opts)
+          vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
+          vim.keymap.set("n", "gt", builtin.lsp_type_definitions, opts)
+          vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, opts)
+          vim.keymap.set("n", "<leader>ws", builtin.lsp_workspace_symbols, opts)
 
-        -- Manual formatting with conform
-        vim.keymap.set("n", "<leader>f", function()
-          require("conform").format({ 
-            lsp_fallback = true, 
-            async = false, 
-            timeout_ms = 1000 
-          })
-        end, opts)
-        
-        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-      end)
+          -- LSP actions
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+          vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+          vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 
-      lsp_zero.set_sign_icons({
-        error = "✘",
-        warn = "▲",
-        hint = "⚑",
-        info = "»",
+          -- Manual formatting with conform
+          vim.keymap.set("n", "<leader>f", function()
+            require("conform").format({
+              lsp_fallback = true,
+              async = false,
+              timeout_ms = 1000
+            })
+          end, opts)
+        end,
+      })
+
+      -- Diagnostic signs
+      vim.diagnostic.config({
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "✘",
+            [vim.diagnostic.severity.WARN] = "▲",
+            [vim.diagnostic.severity.HINT] = "⚑",
+            [vim.diagnostic.severity.INFO] = "»",
+          },
+        },
       })
     end,
   },
