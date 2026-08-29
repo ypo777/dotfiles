@@ -1,6 +1,7 @@
 .vimrc~
 ..vimrc.un~
 .DS_Store
+nvim.log
 /fonts
 # Ignore generated Fisher plugin code (like node_modules)
 config/fish/functions/_fzf*

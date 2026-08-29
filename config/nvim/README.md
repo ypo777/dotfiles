@@ -27,7 +27,8 @@ Leader: `Space`
 | `<C-p>` | git files |
 | `<leader>ps` | live grep (search as you type) |
 | `<leader>pw` | grep word under cursor |
-| `<leader>pv` | file browser (tree view) |
+| `<leader>pv` | current file directory in Oil |
+| `<leader>pB` | Telescope file browser |
 | `<leader>vh` | help tags |
 
 ## LSP Navigation (via Telescope)
@@ -57,8 +58,7 @@ Leader: `Space`
 
 | Key | Action |
 |-----|--------|
-| `<leader>f` | format file (conform) |
-| `<leader>mp` | format file/range (conform) |
+| `<leader>f` | format file or visual selection (conform) |
 | auto | format on save |
 
 ## Git (Telescope)

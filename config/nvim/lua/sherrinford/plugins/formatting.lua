@@ -1,10 +1,10 @@
 return {
   "stevearc/conform.nvim",
-  event = { "BufWritePre" }, -- Load right before saving so the autocommand always catches :w
+  event = { "BufReadPre", "BufNewFile" },
   cmd = { "ConformInfo" },
   keys = {
     {
-      "<leader>mp",
+      "<leader>f",
       function()
         require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 1000 })
       end,
@@ -23,6 +23,7 @@ return {
       html = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
+      ["yaml.docker-compose"] = { "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       go = { "goimports", "gofmt" },
     },

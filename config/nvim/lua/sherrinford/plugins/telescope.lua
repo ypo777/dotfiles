@@ -47,9 +47,10 @@ return {
     vim.keymap.set('n', '<leader>ps', builtin.live_grep, opts)
     vim.keymap.set('n', '<leader>pw', builtin.grep_string, opts) -- grep word under cursor
     vim.keymap.set('n', '<leader>vh', builtin.help_tags, opts)
+    vim.keymap.set('n', '<leader>ws', builtin.lsp_dynamic_workspace_symbols, opts)
 
     -- File browser
-    vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
+    vim.keymap.set('n', '<leader>pB', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', opts)
 
     -- Git
     vim.keymap.set('n', '<leader>gc', builtin.git_commits, opts)

@@ -5,7 +5,7 @@ return {
 
 		statusline.setup({
 			options = {
-				theme = "onedark",
+				theme = "sonokai",
 				component_separators = "",
 				section_separators = { left = " ", right = " " },
 			},
