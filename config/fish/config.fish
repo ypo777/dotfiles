@@ -22,3 +22,30 @@ export PATH="$HOME/.local/bin:$PATH"
 # GitHub PAT for Claude Code MCP (load from gitignored local file)
 test -f ~/.config/fish/local.fish && source ~/.config/fish/local.fish
 set -gx KUBECONFIG ~/.kube/rke2-lab.yaml
+
+set -U fzf_history_opts --preview-window=right:60% --height=80%
+
+# Fuzzy select a folder and cd into it in Terminal
+alias fcd="cd (fd --type d | fzf)"
+
+function fkill
+    set pid (ps -ef | fzf --header="Select process to terminate" | awk '{print $2}')
+    if test -n "$pid"
+        kill -9 $pid
+    end
+end
+
+function gco
+    set branch (git branch --all | fzf | string trim | string replace -r '^remotes/origin/' '')
+    if test -n "$branch"
+        git checkout $branch
+    end
+end
+# Fuzzy select a file and open it in Neovim
+function fif
+    set -l file (fzf --preview 'bat --style=numbers --color=always {} 2>/dev/null || cat {}')
+    if test -n "$file"
+        nvim $file
+    end
+end
+

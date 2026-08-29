@@ -1,32 +1,19 @@
-# Shell
-command = /opt/homebrew/bin/fish
+# ------- Apperance ---------
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+font-thicken = true
+theme = Sonokai
+window-padding-x = 10
+window-padding-y = 2 
 
-# Font
-font-family = "FiraCode Nerd Font"
-font-size = 14
-font-feature = +liga
-font-feature = +calt
 
-# Theme
-theme = "Catppuccin Mocha"
-background-opacity = 0.8
-background-blur = true
-
-# Window
-window-padding-x = 8
-window-padding-y = 4
+#------ Behavior ------
+shell-integration = detect
+shell-integration-features = ssh-terminfo,ssh-env
 macos-titlebar-style = tabs
+confirm-close-surface = false
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+adjust-cell-height = 10%
 
-# macOS - option key sends alt sequences (needed for fish/fzf keybinds)
-macos-option-as-alt = true
-
-# Quick terminal (drop-down, toggle with global hotkey)
-keybind = global:ctrl+grave_accent=toggle_quick_terminal
-
-# Splits
-keybind = cmd+d=new_split:right
-keybind = cmd+shift+d=new_split:down
-keybind = cmd+h=goto_split:left
-keybind = cmd+j=goto_split:bottom
-keybind = cmd+k=goto_split:top
-keybind = cmd+l=goto_split:right

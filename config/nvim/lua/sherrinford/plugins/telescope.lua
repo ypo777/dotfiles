@@ -27,6 +27,7 @@ return {
           grouped = true,
           hidden = true,
           respect_gitignore = false,
+                    theme = "ivy"
         },
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
