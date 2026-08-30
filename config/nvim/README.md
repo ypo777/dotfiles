@@ -61,6 +61,12 @@ Leader: `Space`
 | `<leader>f` | format file or visual selection (conform) |
 | auto | format on save |
 
+## Terminal
+
+| Key | Action |
+|-----|--------|
+| `<leader>tt` | toggle a floating terminal for the current project's Git root |
+
 ## Git (Telescope)
 
 | Key | Action |
